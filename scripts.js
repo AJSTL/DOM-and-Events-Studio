@@ -4,11 +4,17 @@
 let takeoff = null;
 let landing = null;
 let missionAbort = null;
+let rocketImage = null;
+let upButton = null;
+let downButton = null;
+let rightButton = null;
+let leftButton = null;
 
 function init () {
     missionAbort = document.getElementById("missionAbort");
     takeoff = document.getElementById("takeoff");
-    landing = document.getElementById("landing")
+    landing = document.getElementById("landing");
+    rocketImage = document.getElementById("rocket");
 
     takeoff.onclick = takeoffClick;
 
@@ -40,6 +46,31 @@ function init () {
             document.getElementById("spaceShuttleHeight").innerHTML = Number(0);
         }
     }
+
+    upButton.onclick = upClick;
+    downButton.onclick = downClick;
+    rightButton.onclick = rightClick;
+    leftButton.onclick = leftClick;
+    let x=0;
+    let y=0;
+
+    function rightClick() {
+        rocketImage.style.transform = 'translateX(+10px)';
+    }
+
+    function leftClick() {
+        rocketImage.style.transform = 'translateX(-10px)';
+    }
+
+    function upClick(){
+        rocketImage.style.transform = 'translateY(+10px)';
+    }
+
+    function downClick() {
+        rocketImage.style.transform = 'translateY(-10px)';
+    }
+
+    
 }
 
 window.onload = init;
